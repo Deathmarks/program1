@@ -1,0 +1,22 @@
+<project name="project1" default="compile">
+
+   <target name="compile">
+      <javac srcdir="."/>
+   </target>
+
+   <target name="compile_run" depends="compile,run"/>
+
+   <target name="run" depends="compile"> 
+     <java classpath="." classname="WebServer"/>
+   </target>
+
+   <target name="clean">
+      <delete file="WebServer.class"/>
+      <delete file="WebWorker.class"/>
+   </target>
+
+   <target name="rebuild" depends="clean,compile"/>
+
+
+
+</project>
